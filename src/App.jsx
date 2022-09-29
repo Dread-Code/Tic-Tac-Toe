@@ -55,6 +55,11 @@ const buttonStyle = {
   fontSize: "16px",
 };
 
+const winnAreaStyle = {
+  ...instructionsStyle,
+  height: "20px"
+}
+
 // Utils
 
 /**
@@ -70,11 +75,11 @@ const replaceArray = (array, position, el) => {
 };
 
 const checkWinner = (board) => {
-  let winner = ""
+  let winner = "";
   // check the rows
   board.forEach((row) => {
     if (row.every((cell) => cell === "X")) {
-      console.log('entro')
+      console.log("entro");
       winner = players.playerOne;
     } else if (row.every((cell) => cell === "O")) {
       winner = players.playerTwo;
@@ -105,10 +110,9 @@ const checkWinner = (board) => {
   } else if (diagonal2.every((cell) => cell === "X")) {
     winner = players.playerOne;
   } else if (board.flat().every((cell) => cell !== "")) {
-    winner = "draw";
+    winner = "Draw";
   }
-  return winner
-  
+  return winner;
 };
 
 // Reducer, Actions and initialState
@@ -227,8 +231,9 @@ function Board() {
       <div id="statusArea" className="status" style={instructionsStyle}>
         Next player: <span>{currentPlayer}</span>
       </div>
-      <div id="winnerArea" className="winner" style={instructionsStyle}>
-        Winner: <span>{game.winner}</span>
+      <div id="winnerArea" className="winner" style={winnAreaStyle}>
+        {game.winner === "Draw" && game.winner}
+        {game.winner !== "" && game.winner !== "Draw" && <span>Winner: {game.winner}</span>}
       </div>
       <button style={buttonStyle} onClick={resetGame}>
         Reset
