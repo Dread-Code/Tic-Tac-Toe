@@ -79,7 +79,6 @@ const checkWinner = (board) => {
   // check the rows
   board.forEach((row) => {
     if (row.every((cell) => cell === "X")) {
-      console.log("entro");
       winner = players.playerOne;
     } else if (row.every((cell) => cell === "O")) {
       winner = players.playerTwo;
