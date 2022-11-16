@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { GameContext } from "../../Context/GameProvider";
 import { checkWinner } from "../../utils/utils";
 import Square from "../square";
-import "./styles.css";
+import "./Board.styles.css";
 
 function Board() {
   const { game, resetGame, setWinner } = useContext(GameContext);

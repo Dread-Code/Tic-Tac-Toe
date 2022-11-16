@@ -1,6 +1,6 @@
 import React, { useContext, useCallback } from "react";
 import { GameContext } from "../../Context/GameProvider";
-import "./styles.css";
+import "./Square.styles.css";
 
 const Square = React.memo(({ position }) => {
   const { game, togglePosition, nextPlayer } = useContext(GameContext);
